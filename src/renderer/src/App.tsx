@@ -2051,6 +2051,8 @@ function App() {
       duplicateCurrentSegment,
       toggleLastCommands: () => { toggleLastCommands(); return false; },
       export: onExportPress,
+      exportEdlFileTsvHuman: async () => { await exportEdlFile({ type: 'tsv-human', cutSegments: selectedSegments, customOutDir: '/home/marcelo/dev/tcc/dataset/s2', filePath, getFrameCount }); },
+      playback3: () => { setPlaybackRate(.3); return false; },
       extractCurrentSegmentFramesAsImages,
       extractSelectedSegmentsFramesAsImages,
       reorderSegsByStartTime,
@@ -2125,6 +2127,7 @@ function App() {
   const onKeyPress = useCallback(({ action, keyup }: { action: KeyboardAction, keyup?: boolean | undefined }) => {
     function tryMainActions(mainAction: MainKeyboardAction) {
       const fn = getKeyboardAction(mainAction);
+      console.log(fn);
       if (!fn) return { match: false };
       const bubble = fn({ keyup });
       if (bubble === undefined) return { match: true };
@@ -2163,6 +2166,8 @@ function App() {
 
     // allow main actions
     const { match, bubble } = tryMainActions(action);
+
+    console.log(match);
     if (match) return bubble;
 
     return true; // bubble the event

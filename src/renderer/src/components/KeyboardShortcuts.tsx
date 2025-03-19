@@ -194,6 +194,10 @@ const KeyboardShortcuts = memo(({
         name: t('Slow down playback'),
         category: playbackCategory,
       },
+      playback3: {
+        name: 'Playback 0.3',
+        category: playbackCategory,
+      },
       increasePlaybackRateMore: {
         name: t('Speed up playback more'),
         category: playbackCategory,
@@ -527,6 +531,10 @@ const KeyboardShortcuts = memo(({
       // outputCategory
       export: {
         name: t('Export segment(s)'),
+        category: outputCategory,
+      },
+      exportEdlFileTsvHuman: {
+        name: t('Export Timestamps (TSV/TXT)'),
         category: outputCategory,
       },
       captureSnapshot: {

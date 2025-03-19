@@ -208,9 +208,8 @@ export async function exportEdlFile({ type, cutSegments, customOutDir, filePath,
   }
 
   const defaultPath = getOutPath({ filePath, customOutDir, fileName: `${basename(filePath)}.${ext}` });
-
-  const { canceled, filePath: savePath } = await dialog.showSaveDialog({ defaultPath, title: i18n.t('Export project'), ...(filters != null ? { filters } : {}) });
-  if (canceled || !savePath) return;
+  console.log(defaultPath);
+  const savePath = defaultPath;
   console.log('Saving', type, savePath);
   // eslint-disable-next-line unicorn/prefer-switch
   if (type === 'csv') await saveCsv(savePath, cutSegments);
